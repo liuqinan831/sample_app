@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
@@ -11,7 +11,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 
-gem 'bcrypt-ruby', '3.0.1'
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'factory_girl_rails', '4.2.1'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
