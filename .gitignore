@@ -17,6 +17,7 @@ doc/
 .project
 .DS_Store
 .idea
+Gemfile.lock
 .secret
 
 /config/initializers/secret_token.rb
