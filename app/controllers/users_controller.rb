@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def new
@@ -55,22 +56,18 @@ class UsersController < ApplicationController
     end
 
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
-    end
-
-    def signed_in_user
       unless signed_in?
         store_location
         redirect_to signin_url, notice: "Please sign in."
       end
     end
 
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
+
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
-    end
-
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
     end
 end
